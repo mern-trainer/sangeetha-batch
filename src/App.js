@@ -1,12 +1,20 @@
-import { Fragment } from "react"
-import TodoPage from "./Pages/TodoPage"
-import Props from "./Components/Props"
+import { createContext, Fragment, useState } from "react"
+import ContextPage from "./Pages/ContextPage"
+
+export const counterContext = createContext()
 
 const App = () => {
-    return <Fragment>
-        <TodoPage />
+
+    const [counter, setCounter] = useState(0)
+
+    const values = { counter, setCounter }
+
+    return <counterContext.Provider value={values}>
+        {/* <TodoPage /> */}
         {/* <Props /> */}
-    </Fragment>
+        <ContextPage />
+        {counter}
+    </counterContext.Provider>
 }
 
 export default App
