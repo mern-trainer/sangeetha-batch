@@ -3,13 +3,13 @@
 // Hooks => functions, to handle state and lifecycle of a component
 
 import { useContext } from "react"
-import { counterContext } from "../App"
+import { CounterContext } from "../Providers/CounterProvider"
 
 // createContext() from react, useContext() 
 
 const ContextPage = () => {
 
-    const {counter, setCounter} = useContext(counterContext)
+    const {counter, setCounter} = useContext(CounterContext)
 
     return <div className="d-flex flex-column align-items-center">
         {counter}
