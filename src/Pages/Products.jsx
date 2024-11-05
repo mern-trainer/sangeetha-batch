@@ -1,8 +1,7 @@
 import { Fragment } from "react"
 import Header from "../Components/Header"
 import { products } from "../Constants/products"
-import { Col, Container, Image, Row } from "react-bootstrap"
-import { FaStar } from "react-icons/fa"
+import { Container, Row } from "react-bootstrap"
 import { useCart } from "../Providers/CartProvider"
 import ProductList from "../Components/ProductList"
 
@@ -11,7 +10,7 @@ const ProductsPage = () => {
     const { cartList, setCartList } = useCart()
 
     const addToCart = (product) => {
-        const index = cartList.findIndex(item => item.id == product.id)
+        const index = cartList.findIndex(item => item.id === product.id)
         if (index > -1) {
             return alert("Product Already exist")
         }
