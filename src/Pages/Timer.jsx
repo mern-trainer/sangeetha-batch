@@ -2,15 +2,24 @@ import { useEffect, useState } from "react"
 
 const Timer = () => {
     
-    const [timer, setTimer] = useState(0)
+    const [timer, setTimer] = useState("")
     const [count, setCount] = useState(0)
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setTimer(timer => timer + 1)
-        }, 1000) // 1000 --ms, 1s
+        const timeInterval = setInterval(() => {
+            const currentDateTime = new Date().toLocaleString("en-IN", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: true
+            }).toUpperCase()
+            setTimer(currentDateTime)
+        }, 1000);
         return () => {
-            clearInterval(interval) // clearing prev time interval
+            clearInterval(timeInterval)
         }
     }, [count])
 
