@@ -5,6 +5,7 @@ import { FaEdit, FaEye, FaPen, FaTrash } from "react-icons/fa"
 import { FaCircleCheck } from "react-icons/fa6"
 import { v4 as getUniqueId } from "uuid"
 import Modal from "../Components/Modal"
+import { Link } from "react-router-dom"
 
 const TodoPage = () => {
 
@@ -104,6 +105,7 @@ const TodoPage = () => {
                     </div>
                 })
             }
+            <Link to="/shop">Go To Shop</Link>
         </Stack>
     </div>
 }
