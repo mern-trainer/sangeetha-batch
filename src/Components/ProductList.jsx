@@ -2,12 +2,15 @@ import { Fragment } from "react";
 import { Col, Image } from "react-bootstrap"
 import { FaStar } from "react-icons/fa"
 import { useCart } from "../Providers/CartProvider";
+import { useNavigate } from "react-router-dom";
 
 let element;
 
 const ProductList = ({ product, addToCart, cart }) => {
 
     const { cartList, setCartList } = useCart()
+
+    const navigate = useNavigate()
     
     const removeFromCart = () => {
         const res = cartList.filter(item => item.id !== product.id)
@@ -33,7 +36,7 @@ const ProductList = ({ product, addToCart, cart }) => {
     const discountPrice = product.price - (product.price * product.discountPercentage / 100)
 
     return <Col xs={12} sm={6} md={4} lg={3} xxl={2}>
-        <div>
+        <div onClick={() => navigate("/view/" + product.id)}>
             <Image fluid src={product.images[0]} alt="" style={{aspectRatio: 1/1, objectFit: "contain"}}/>
         </div>
         <div>

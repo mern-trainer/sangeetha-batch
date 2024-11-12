@@ -2,7 +2,8 @@ import { useEffect, useState } from "react"
 import ProductList from "../Components/ProductList"
 import { useCart } from "../Providers/CartProvider"
 import { Container, Row } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { FaShoppingBag } from "react-icons/fa"
 
 
 const ShopPage = () => {
@@ -36,8 +37,14 @@ const ShopPage = () => {
         }
     }
 
+    const navigate = useNavigate()
+
+    const handleNavigation = () => {
+        navigate("/cart")
+    }
+
     return <div>
-        <Link to={"/cart"}>Cart</Link>
+        <FaShoppingBag size={30} cursor={"pointer"} onClick={handleNavigation}/>
         <Container fluid>
             <Row>
                 {
