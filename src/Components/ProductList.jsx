@@ -10,7 +10,7 @@ const ProductList = ({ product, addToCart, cart }) => {
 
     const { cartList, setCartList } = useCart()
 
-    const navigate = useNavigate()
+    const navigate = useNavigate() // condition based navigation
     
     const removeFromCart = () => {
         const res = cartList.filter(item => item.id !== product.id)
