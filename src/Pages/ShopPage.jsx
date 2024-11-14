@@ -4,6 +4,7 @@ import { useCart } from "../Providers/CartProvider"
 import { Container, Row } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { FaShoppingBag } from "react-icons/fa"
+import TopMenu from "../Components/NavBar"
 
 
 const ShopPage = () => {
@@ -44,6 +45,7 @@ const ShopPage = () => {
     }
 
     return <div>
+        <TopMenu />
         <FaShoppingBag size={30} cursor={"pointer"} onClick={handleNavigation}/>
         <Container fluid>
             <Row>

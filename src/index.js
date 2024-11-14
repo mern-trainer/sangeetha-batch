@@ -6,6 +6,7 @@ import { Fragment } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { ContextProvider } from './Providers/CounterProvider';
 import { CartProvider } from './Providers/CartProvider';
+import TopMenu from './Components/NavBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

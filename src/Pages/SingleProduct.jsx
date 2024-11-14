@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import TopMenu from '../Components/NavBar'
 
 const SingleProduct = () => {
 
@@ -21,6 +22,7 @@ const SingleProduct = () => {
 
     return (
         <Fragment>
+            <TopMenu />
             {
                 product && <div className='d-flex justify-content-between'>
                     <div className='w-100'>
