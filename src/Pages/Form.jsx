@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import toast from 'react-hot-toast';
 
 const Form = () => {
 
@@ -8,11 +9,14 @@ const Form = () => {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value.toLowerCase() })
+        setFormData({ ...formData, [name]: value })
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        // if (formData.username == "") {
+        //     return setError({username: "required"})
+        // }
         console.log(formData)
     }
 
