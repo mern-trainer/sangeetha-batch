@@ -8,6 +8,7 @@ import SingleProduct from '../Pages/SingleProduct'
 import TopMenu from '../Components/NavBar'
 import Formik from '../Pages/Formik'
 import Form from '../Pages/Form'
+import Redux from '../Pages/Redux'
 
 const Router = () => {
     return <BrowserRouter>
@@ -15,6 +16,7 @@ const Router = () => {
             <Route path="/shop" Component={ShopPage} />
             <Route path="/" Component={TopMenu} />
             <Route path="/formik" Component={Formik} />
+            <Route path="/redux" Component={Redux} />
             <Route path="/form" Component={Form} />
             <Route path="/view/:product_id" Component={SingleProduct} />
             <Route path="/cart" Component={CartPage} />

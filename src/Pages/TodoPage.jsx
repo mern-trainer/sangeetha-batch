@@ -21,10 +21,10 @@ const TodoPage = () => {
     }
 
     const handleAddToList = () => {
-        if (todoTask == "") {
+        if (todoTask === "") {
             return toast.error("Task is required!")
         }
-        const idx = todoList.findIndex((element) => element.title == todoTask)
+        const idx = todoList.findIndex((element) => element.title === todoTask)
         if (idx > -1) {
             return toast.error("Task already exist!")
         }
@@ -49,7 +49,7 @@ const TodoPage = () => {
 
     const handleUpdate = (editId) => {
         const res = todoList.map(item => {
-            if (item.id == editId) {
+            if (item.id === editId) {
                 const datetime = new Date().toLocaleString("en-IN").toUpperCase()
                 return {...item, title: editText, updatedAt: datetime}
             }
@@ -63,7 +63,7 @@ const TodoPage = () => {
 
     const updateStatus = (updateId) => {
         const res = todoList.map(item => {
-            if (item.id == updateId) {
+            if (item.id === updateId) {
                 const datetime = new Date().toLocaleString("en-IN").toUpperCase()
                 return {...item, updatedAt: datetime, completed: !item.completed}
             }
@@ -85,7 +85,7 @@ const TodoPage = () => {
                     return <div key={task.id} className="p-2 bg-light text-dark d-flex align-items-center">
                         <div style={{ width: "95%" }} className="text-truncate" >
                             <div>Title: {
-                                editable?.id == task.id ? <Fragment>
+                                editable?.id === task.id ? <Fragment>
                                     <input type="text" onChange={(e) => setEditText(e.target.value)} value={editText}/>
                                     <button onClick={() => handleUpdate(task.id)}>Update</button>
                                 </Fragment> : task.title
