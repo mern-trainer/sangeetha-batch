@@ -6,10 +6,14 @@ import { FaCircleCheck } from "react-icons/fa6"
 import { v4 as getUniqueId } from "uuid"
 import Modal from "../Components/Modal"
 import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { addToList, removeTodo } from "../Redux/todoSlice"
 
 const TodoPage = () => {
 
-    const [todoList, setTodoList] = useState([])
+    const { todoList } = useSelector(store => store.todo)
+
+    const [setTodoList] = useState([])
     const [todoTask, setTodoTask] = useState("")
     const [editText, setEditText] = useState("")
     const [editable, setEditable] = useState(null)
@@ -19,6 +23,8 @@ const TodoPage = () => {
         const { value } = event.target
         setTodoTask(value.replace(" ", "_"))
     }
+
+    const dispatch = useDispatch()
 
     const handleAddToList = () => {
         if (todoTask === "") {
@@ -36,14 +42,14 @@ const TodoPage = () => {
             createdAt: datetime,
             updatedAt: datetime
         }
-        setTodoList([taskObject, ...todoList])
+        // setTodoList([taskObject, ...todoList])
+        dispatch(addToList(taskObject))
         setTodoTask("")
         return toast.success("Task added!")
     }
 
     const handleRemove = (taskId) => {
-        const res = todoList.filter((item) => item.id != taskId)
-        setTodoList(res)
+        dispatch(removeTodo({ taskId }))
         return toast.success("Task removed!")
     }
 
